@@ -30,7 +30,7 @@ public class GitHubCommand implements ICommand {
     public void handle(List<String> args, GuildMessageReceivedEvent event) {
         EmbedBuilder builder = EmbedUtils.getDefaultEmbed();
 
-        builder.setDescription("The District Bot is now Open Source. Check it out").addField("Link", "https://github.com/daniel0294/District-Bot", false).setThumbnail("https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png");
+        builder.setDescription("5GF Github Page. Check it out").addField("Link", "https://github.com/daniel0294/5GF-Bot", false).setThumbnail("https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png");
 
         event.getChannel().sendMessage(builder.build()).queue();
     }
