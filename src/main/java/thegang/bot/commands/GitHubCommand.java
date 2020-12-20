@@ -37,7 +37,7 @@ public class GitHubCommand implements ICommand {
 
     @Override
     public String getHelp() {
-        return "Sends github repo of the Discord Bot\n" + "Usage: `" + Constants.PREFIX + getInvoke() + "`";
+        return "Sends github repo of the 5GF Bot\n" + "Usage: `" + Constants.PREFIX + getInvoke() + "`";
     }
 
     @Override
