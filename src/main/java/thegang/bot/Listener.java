@@ -30,17 +30,17 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import thegang.bot.config.Config;
 
-public class Listener extends ListenerAdapter{
+public class Listener extends ListenerAdapter {
 
     private final CommandManager manager;
     private final Logger logger = LoggerFactory.getLogger(Listener.class);
 
-    public Listener(CommandManager manager){
+    public Listener(CommandManager manager) {
         this.manager = manager;
     }
 
     @Override
-    public void onReady(ReadyEvent event){
+    public void onReady(ReadyEvent event) {
         logger.info(String.format("Logged in as %#s\n", event.getJDA().getSelfUser()));
     }
 
@@ -62,24 +62,24 @@ public class Listener extends ListenerAdapter{
     }
 
     @Override
-    public void onGuildMessageReceived(GuildMessageReceivedEvent event){
-        if(event.getMessage().isWebhookMessage()) return;
+    public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
+        if (event.getMessage().isWebhookMessage())
+            return;
 
         if (event.getMessage().getContentRaw().equalsIgnoreCase(Constants.PREFIX + "shutdown")
                 && event.getAuthor().getId().equals(Config.getInstance().getString("owner"))) {
             shutdown(event.getJDA());
             return;
-        }
+        } else
 
         if (!event.getAuthor().isBot() && event.getMessage().getContentRaw().startsWith(Constants.PREFIX)) {
             manager.handleCommand(event);
         }
     }
 
-    
     private void shutdown(JDA jda) {
         jda.shutdown();
         System.exit(0);
     }
-    
+
 }
