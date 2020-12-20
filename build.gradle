@@ -44,5 +44,5 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClassName = 'thegang.bot.App'
+    mainClassName = 'thegang.bot.Main'
 }

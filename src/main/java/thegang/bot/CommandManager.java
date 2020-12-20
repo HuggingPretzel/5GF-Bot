@@ -29,7 +29,7 @@ import org.jetbrains.annotations.NotNull;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import thegang.bot.objects.ICommand;
-
+import thegang.bot.commands.GitHubCommand;
 import thegang.bot.commands.UploadHelpCommand;
 
 /**
@@ -41,6 +41,7 @@ public class CommandManager {
 
     CommandManager() {
         addCommand(new UploadHelpCommand());
+        addCommand(new GitHubCommand());
     }
 
     private void addCommand(ICommand command) {
