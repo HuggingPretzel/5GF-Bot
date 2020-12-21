@@ -66,7 +66,7 @@ public class UploadHelpCommand implements ICommand {
 
     @Override
     public String getHelp() {
-        return null;
+        return "Helps upload sauce link with image as an embed";
     }
 
     @Override

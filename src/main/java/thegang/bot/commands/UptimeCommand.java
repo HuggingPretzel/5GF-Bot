@@ -1,6 +1,6 @@
 /**
  *      Copyright 2020 Daniel Sanchez
- * GitHubCommand
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,33 +16,41 @@
 
 package thegang.bot.commands;
 
+import java.lang.management.ManagementFactory;
+import java.lang.management.RuntimeMXBean;
 import java.util.List;
 
-import thegang.bot.Constants;
-import me.duncte123.botcommons.messaging.EmbedUtils;
-import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import thegang.bot.objects.ICommand;
 
-public class GitHubCommand implements ICommand {
+/**
+ * UptimeCommand
+ */
+public class UptimeCommand implements ICommand {
 
     @Override
     public void handle(List<String> args, GuildMessageReceivedEvent event) {
-        EmbedBuilder builder = EmbedUtils.getDefaultEmbed();
+        RuntimeMXBean runtimeMXBean = ManagementFactory.getRuntimeMXBean();
+        long uptime = runtimeMXBean.getUptime();
+        long uptimeInSeconds = uptime / 1000;
+        long numberOfHours = uptimeInSeconds / (60 * 60);
+        long numberOfMinutes = (uptimeInSeconds / 60) - (numberOfHours * 60);
+        long numberOfSeconds = uptimeInSeconds % 60;
+        long numberOfDays = numberOfHours / 24;
 
-        builder.setDescription("5GF Github Page. Check it out").addField("Link", "https://github.com/daniel0294/5GF-Bot", false).setThumbnail("https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png");
+        event.getChannel().sendMessageFormat("My Uptime is `%s days, %s hours, %s minutes, %s seconds`", numberOfDays,
+                (numberOfHours % 24), numberOfMinutes, numberOfSeconds).queue();
 
-        event.getChannel().sendMessage(builder.build()).queue();
     }
 
     @Override
     public String getHelp() {
-        return "Sends github repo of the 5GF Bot\n" + "Usage: `" + Constants.PREFIX + getInvoke() + "`";
+        return "Shows the current uptime of the bot.";
     }
 
     @Override
     public String getInvoke() {
-        return "github";
+        return "uptime";
     }
 
     @Override
@@ -51,5 +59,3 @@ public class GitHubCommand implements ICommand {
     }
 
 }
-
-    

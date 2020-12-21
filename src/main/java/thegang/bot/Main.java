@@ -85,9 +85,13 @@ public class Main {
     public static void main(String[] args) throws IOException {
         new Main();
         setBirthdates();
-        System.out.println(birthdays.get(0).getDate());
+        // System.out.println(birthdays.get(0).getDate());
 
-        System.out.println(birthdays.get(0).getDiscordId() == null);
+        // System.out.println(birthdays.get(0).getDiscordId() == null);
+
+        // for (Birthday bday : birthdays) {
+        //     System.out.println(bday.getDate().getMonthValue() + " - " + bday.getPerson());
+        // }
         
     }
 

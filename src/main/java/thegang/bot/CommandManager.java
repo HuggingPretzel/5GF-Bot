@@ -29,8 +29,7 @@ import org.jetbrains.annotations.NotNull;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import thegang.bot.objects.ICommand;
-import thegang.bot.commands.GitHubCommand;
-import thegang.bot.commands.UploadHelpCommand;
+import thegang.bot.commands.*;
 
 /**
  * CommandManager
@@ -42,6 +41,9 @@ public class CommandManager {
     CommandManager() {
         addCommand(new UploadHelpCommand());
         addCommand(new GitHubCommand());
+        addCommand(new BirthdaysComannd());
+        addCommand(new HelpCommand(this));
+        addCommand(new UptimeCommand());
     }
 
     private void addCommand(ICommand command) {
@@ -54,20 +56,6 @@ public class CommandManager {
         return commands.values();
     }
 
-
-
-    // public Collection<ICommand> getCommands(int type){
-    //     Map<String, ICommand> newCommands = new HashMap<>();
-
-    //     commands.forEach((k, v)->{
-    //         if(v.getType() == type){
-    //             newCommands.put(k, v);
-    //         }
-    //     });
-
-    //     return newCommands.values();
-    // }
-    //
 
     public List<ICommand> getCommands(int type){
         List<ICommand> newCommands = new ArrayList<>();
