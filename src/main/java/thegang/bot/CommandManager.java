@@ -30,10 +30,8 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import thegang.bot.objects.ICommand;
 import thegang.bot.commands.*;
+import thegang.bot.commands.owner.FlipPrescenceCommand;
 
-/**
- * CommandManager
- */
 public class CommandManager {
 
     private final Map<String, ICommand> commands = new HashMap<>();
@@ -44,6 +42,7 @@ public class CommandManager {
         addCommand(new BirthdaysComannd());
         addCommand(new HelpCommand(this));
         addCommand(new UptimeCommand());
+        addCommand(new FlipPrescenceCommand());
     }
 
     private void addCommand(ICommand command) {

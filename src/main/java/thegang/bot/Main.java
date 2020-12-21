@@ -72,6 +72,7 @@ public class Main {
             .addEventListeners(listener).build();
 
             jda.getPresence().setPresence(OnlineStatus.DO_NOT_DISTURB, Activity.watching("anime"));
+            // jda.getPresence().setPresence(OnlineStatus.DO_NOT_DISTURB, Activity.streaming("cool vibes", "https://www.youtube.com/watch?v=dQw4w9WgXcQ"));
                 
 
         } catch (Exception e) {
