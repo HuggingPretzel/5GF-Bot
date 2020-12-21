@@ -21,6 +21,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import me.duncte123.botcommons.messaging.EmbedUtils;
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import thegang.bot.Main;
 import thegang.bot.objects.Birthday;
@@ -49,10 +51,13 @@ public class BirthdaysComannd implements ICommand {
 
         for (Birthday bday : bdays) {
             
-            text += bday.getPerson() + " -- " + bday.getDate().getMonthValue() + "-" + bday.getDate().getDayOfMonth() + "\n";
+            text += bday.getPerson() + " \\|| " + bday.getDate().getMonthValue() + "-" + bday.getDate().getDayOfMonth() + "\n";
         }
 
-        event.getChannel().sendMessage(text).queue();
+        EmbedBuilder embed = EmbedUtils.getDefaultEmbed();
+        embed.setTitle("The Gang's Birthdays");
+        embed.setDescription(text);
+        event.getChannel().sendMessage(embed.build()).queue();
 
     }
 

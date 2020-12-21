@@ -57,7 +57,12 @@ public class Main {
         Listener listener = new Listener(manager);
         Logger logger = LoggerFactory.getLogger(Main.class);
 
-        EmbedUtils.setEmbedBuilder(() -> new EmbedBuilder().setColor(getRandomColor()).setTimestamp(Instant.now()));
+        EmbedUtils.setEmbedBuilder(() -> 
+            new EmbedBuilder()
+            .setColor(getRandomColor())
+            .setTimestamp(Instant.now())
+            .setFooter(Constants.NAME)
+        );
    
         try {
             logger.info("Booting");
@@ -85,13 +90,6 @@ public class Main {
     public static void main(String[] args) throws IOException {
         new Main();
         setBirthdates();
-        // System.out.println(birthdays.get(0).getDate());
-
-        // System.out.println(birthdays.get(0).getDiscordId() == null);
-
-        // for (Birthday bday : birthdays) {
-        //     System.out.println(bday.getDate().getMonthValue() + " - " + bday.getPerson());
-        // }
         
     }
 

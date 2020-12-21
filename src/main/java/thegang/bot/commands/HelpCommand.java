@@ -42,7 +42,6 @@ public class HelpCommand implements ICommand {
             EmbedBuilder builder = EmbedUtils.getDefaultEmbed();
             builder.setTitle("List of Commands");
             builder.setThumbnail(event.getJDA().getSelfUser().getAvatarUrl());
-            builder.setFooter(Constants.NAME);
             builder.addField("Prefix", Constants.PREFIX, false);
 
             String text = "";
