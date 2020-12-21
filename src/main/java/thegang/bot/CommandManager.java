@@ -41,7 +41,7 @@ public class CommandManager {
     CommandManager() {
         addCommand(new UploadHelpCommand());
         addCommand(new GitHubCommand());
-        addCommand(new BirthdaysComannd());
+        // addCommand(new BirthdaysComannd());
         addCommand(new HelpCommand(this));
         addCommand(new UptimeCommand());
     }
